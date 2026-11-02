@@ -8,7 +8,7 @@ function DisplayValue(value: string | number | null) {
 }
 
 export function Digest({ night, digest }: { night: string; digest: DigestNight }) {
-  const sortedRows = [...digest.rows].sort((left, right) => left.job.localeCompare(right.job));
+  const sortedRows = [...digest.rows].sort((left, right) => left.job < right.job ? -1 : left.job > right.job ? 1 : 0);
 
   return (
     <>
@@ -20,6 +20,7 @@ export function Digest({ night, digest }: { night: string; digest: DigestNight }
       {sortedRows.length === 0 ? (
         <p class="mute">nothing ran</p>
       ) : (
+        <div class="table-scroll" role="region" aria-label="Nightly jobs" tabIndex={0}>
         <table>
           <thead>
             <tr>
@@ -52,6 +53,7 @@ export function Digest({ night, digest }: { night: string; digest: DigestNight }
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </>
   );

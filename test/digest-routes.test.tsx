@@ -380,7 +380,9 @@ describe('digest routes', () => {
           `{"at":"2026-10-29T01:31:00+01:00","job":"fixtures/refresh","status":"retry","owner":"rook","error":"upstream 503"}\n` +
           `{"at":"2026-10-29T01:33:00+01:00","job":"fixtures/refresh","status":"retry","owner":"rook","error":"upstream 503"}\n` +
           `{"at":"2026-10-29T01:37:00+01:00","job":"fixtures/refresh","status":"ok","owner":"rook"}\n` +
-          `{"at":"2026-10-29T04:00:01+01:00","job":"notes/backup","status":"fail","owner":"lane-07","error":"quota exceeded"}\n`
+          `{"at":"2026-10-29T04:00:01+01:00","job":"notes/backup","status":"fail","owner":"lane-07","error":"quota exceeded"}\n` +
+          `{"at":"2026-10-29T04:01:00+01:00","job":"Zebra/check","status":"ok","owner":null}\n` +
+          `{"at":"2026-10-29T04:02:00+01:00","job":"_internal/check","status":"ok","owner":null}\n`
       );
 
       const config = { ...baseConfig, runsDir: testRunsDir };
@@ -397,7 +399,7 @@ describe('digest routes', () => {
       };
 
       const jobs = json.rows.map((row) => row.job);
-      expect(jobs).toEqual(['fixtures/refresh', 'notes/backup']);
+      expect(jobs).toEqual(['Zebra/check', '_internal/check', 'fixtures/refresh', 'notes/backup']);
       const pageRows = [...html.matchAll(/<tr\b[^>]*>[\s\S]*?<\/tr>/gi)]
         .map(([row]) => row)
         .filter((row) => /<td\b/i.test(row));
