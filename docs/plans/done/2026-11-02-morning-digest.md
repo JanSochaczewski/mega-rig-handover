@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-02
 ---
 
 # Morning digest
@@ -77,3 +78,30 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Completion
+
+Completed on 2026-11-02. The reviewer explicitly confirmed seeing the public preview at
+[https://abend.pl/mega-rig/](https://abend.pl/mega-rig/).
+
+After the user approved cleanup, `/digest/2026-10-28` was exported again with `LANE_MARKER`
+unset and atomically uploaded over the same public preview link. Verification confirmed that
+the public bytes equal the clean export, the banner reads "no marker set", and the old marker
+is absent. The protected application, database, source and tunnel were untouched.
+
+Prior implementation validation passed all 45 tests and `pnpm typecheck`. These checks were
+not rerun for this documentation-only archive. Issue #8 closure is pending parent publishing
+and verification; this archive does not record a course solve.
+
+## Issues
+
+| # | Issue |
+|---|-------|
+| 1 | https://github.com/JanSochaczewski/mega-rig-handover/issues/1 |
+| 2 | https://github.com/JanSochaczewski/mega-rig-handover/issues/2 |
+| 3 | https://github.com/JanSochaczewski/mega-rig-handover/issues/3 |
+| 4 | https://github.com/JanSochaczewski/mega-rig-handover/issues/4 |
+| 5 | https://github.com/JanSochaczewski/mega-rig-handover/issues/5 |
+| 6 | https://github.com/JanSochaczewski/mega-rig-handover/issues/6 |
+| 7 | https://github.com/JanSochaczewski/mega-rig-handover/issues/7 |
+| 8 | https://github.com/JanSochaczewski/mega-rig-handover/issues/8 |
